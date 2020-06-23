@@ -1,0 +1,38 @@
+{% extends('base.html.twig') %}
+{% block body %}
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>name</td>
+			<td>datetime</td>
+			<td>description</td>
+			<td>image</td>
+			<td>capacity</td>
+			<td>email</td>
+			<td>phone</td>
+			<td>address</td>
+			<td>url</td>
+			<td>action</td>
+		</tr>
+	</thead>
+	<tbody>
+			<tr>
+				<td>{{ post.id }}</td>
+				<td><a href={{ path('post.show', {id: post.id}) }}>{{ post.name }}</a></td>
+				<td>{{ post.datetime|date('Y-m-d H:i:s') }}</td>
+				<td>{{ post.description }}</td>
+				<td><img src="{{ post.image }}" /></td></td>
+				<td>{{ post.capacity }}</td>
+				<td>{{ post.email }}</td>
+				<td>{{ post.phone }}</td>
+				<td>{{ post.address }}</td>
+				<td>{{ post.url }}</td>
+				<td><a href="{{ path('post.delete', {id: post.id}) }}">delete</a></td>
+				<td><a href="{{ path('post.edit', {id: post.id}) }}">edit</a></td>
+				
+
+
+
+			</tr>
+{% endblock %}

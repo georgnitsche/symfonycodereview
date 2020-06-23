@@ -1,0 +1,28 @@
+{% extends('base.html.twig') %}
+{% block body %}
+{% for message in app.flashes('success') %}
+	<div class="alert alert-success">
+		{{ message }}
+	</div>
+{% endfor %}
+<h2>List of all Events</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>name</td>
+			<td>datetime</td>
+			
+		</tr>
+	</thead>
+	<tbody>
+		{% for post in posts %}
+			<tr>
+				<td>{{ post.id }}</td>
+				<td><a href={{ path('post.show', {id: post.id}) }}>{{ post.name }}</a></td>
+				<td>{{ post.datetime|date('Y-m-d H:i:s') }}</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
